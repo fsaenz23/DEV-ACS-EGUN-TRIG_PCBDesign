@@ -2,6 +2,17 @@
 
 Append-only per-commit ledger (fw-T8.C1.S1). Newest entries at the top.
 
+## 2026-10-07 -- fix: set owner email to work address
+
+- **by:** fjsaenz
+- **commit:** *(pending)*
+- **branch:** master
+- **scope:** project
+- **rules cited:** fw-T2.C1.S10.SS1, fw-T8.C1.S1.SS1
+
+Changed the owner party's email in `Workflows/ownership/parties.yaml` from the personal address to
+the work address (`fsaenz@reveam.com`). No other content change.
+
 ## 2026-10-07 -- dev-acs-egun-trig-pcbdesign-v0.1.0 MINOR none: Phase-2 bootstrap + released Trigger Board design content
 
 - **by:** fjsaenz
