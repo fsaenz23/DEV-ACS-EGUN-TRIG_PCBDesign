@@ -26,7 +26,7 @@ itself is not overridable.
 ## Current standing state
 - Phase: Phase 2 content populated 2026-10-07 (uncommitted); name gate CANONICAL, validate.ps1 PASS
 - Classification: DEV-ACS-EGUN-TRIG_PCBDesign (ACS -> EGUN -> TRIG; function TimingSignal; type-class PCB; discipline D040)
-- Owner: pty-francisco-saenz (EntraID fjsaenz)
+- Owner: pty-francisco-saenz (EntraID fsaenz)
 - Layout: flat (no eigen-module; no composition.yaml); two boards under Definition/Drawings/{Base_Board,Logic_Board}
 - Design content: released Base ("pin version") + Logic (rev 0.2) boards; source package C:\Repos\Trigger_Board_Package left untouched
 - Pins: see compatibility.yaml (governance_pins)

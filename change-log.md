@@ -2,6 +2,19 @@
 
 Append-only per-commit ledger (fw-T8.C1.S1). Newest entries at the top.
 
+## 2026-10-07 -- fix: correct owner EntraID to fsaenz
+
+- **by:** fsaenz
+- **commit:** *(pending)*
+- **branch:** master
+- **scope:** project
+- **rules cited:** fw-T2.C1.S10.SS1, fw-T8.C1.S1.SS1
+
+Corrected the owner's EntraID from the inferred `fjsaenz` to `fsaenz` in
+`Workflows/ownership/parties.yaml`, `README.md`, `docs/README.md` and
+`Project/STANDING-STATE.md`. The two earlier entries below carry `by: fjsaenz`; the ledger is
+append-only, so they are left as written and this entry supersedes them.
+
 ## 2026-10-07 -- fix: set owner email to work address
 
 - **by:** fjsaenz

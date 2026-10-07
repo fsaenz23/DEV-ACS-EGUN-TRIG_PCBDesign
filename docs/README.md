@@ -12,7 +12,7 @@ into. The released boards are in production; this repo records them as the basel
 
 ## Owner
 
-Accountable owner: **Francisco Saenz** (party `pty-francisco-saenz`; EntraID `fjsaenz`; see
+Accountable owner: **Francisco Saenz** (party `pty-francisco-saenz`; EntraID `fsaenz`; see
 [`Workflows/ownership/parties.yaml`](../Workflows/ownership/parties.yaml) and the per-system
 record in [`Workflows/ownership/stakeholders.yaml`](../Workflows/ownership/stakeholders.yaml)).
 This project runs `workflow_mode: direct` (single-committer; commits land on the main branch).

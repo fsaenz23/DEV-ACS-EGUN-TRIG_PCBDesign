@@ -32,7 +32,7 @@ This human-prose Scope MUST agree with the machine-readable `scope:` block in
 ## Status
 
 - **Status:** Phase-2 bootstrap complete (pre-release, `v0.1.0`); the boards themselves are released and in production.
-- **Owner:** Francisco Saenz (party `pty-francisco-saenz`; EntraID `fjsaenz`). See [`Workflows/ownership/parties.yaml`](Workflows/ownership/parties.yaml).
+- **Owner:** Francisco Saenz (party `pty-francisco-saenz`; EntraID `fsaenz`). See [`Workflows/ownership/parties.yaml`](Workflows/ownership/parties.yaml).
 - **Version:** see [`VERSION`](VERSION) (this repo's own rev). The full multi-module composition cover is the
   document meta-frontpage's job (fw-T8.C1.S11.SS8); this README states this repo's rev and links onward.
 
