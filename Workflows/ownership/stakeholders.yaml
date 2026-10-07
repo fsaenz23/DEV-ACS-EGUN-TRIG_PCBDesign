@@ -1,0 +1,10 @@
+# Project-level system owner/stakeholder manifest (fw-stakeholders-v1; fw-T2.C1.S10). Phase 2 populates.
+schema:
+  id: fw-stakeholders-v1
+  version: 1.0.0
+governance:
+  owner_rule: T2.C1.S10.SS2
+  module: dev-acs-egun-trig-pcbdesign
+last_updated: 2026-10-07
+systems:
+# (empty until Phase 2 -- add entries as `- name: <system>` with owner: + stakeholders: [])

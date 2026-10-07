@@ -1,0 +1,34 @@
+# CI rule manifest -- THIN delegator emitted by the CS scaffolder (cs-T5.C1.S17.SS2).
+# Delegates to the FW-pinned canonical validator in the _GOV-DesignFramework submodule
+# (FW owns the body; T5.C1.S4). Do NOT author a validator body in the consumer repo.
+
+schema:
+  id: fw-ci-manifest-v1
+  version: 1.0.0
+governance:
+  owner_rule: T5.C1.S4
+  module: fw
+last_updated: 2026-05-21
+
+ci_rule_id: narrative-reachability
+title: Narrative Reachability
+bylaws_section: T5.C1.S4
+class: mandatory
+severity: warn
+tier: per-commit
+
+script: Governance/_GOV-DesignFramework/Definition/References/scripts/ci/narrative-reachability.ps1
+
+description: |
+  Walks Definition/Narratives/ for .md files and verifies each is reachable
+  through at least one outbound link (per T5.C1.S4.SS2). Orphans WARN. INDEX/
+  README + Roadmap/ + 99-archive/ exempt. Delegated to the FW-pinned validator.
+
+config:
+  narratives_root: Definition/Narratives
+  exempt_paths:
+    - Roadmap
+    - 99-archive
+  exempt_filenames:
+    - INDEX.md
+    - README.md

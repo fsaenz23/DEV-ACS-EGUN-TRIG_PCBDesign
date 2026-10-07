@@ -1,0 +1,11 @@
+# Per-repo party registry (fw-parties-v1; fw-T2.C1.S10). party_id grammar 'pty-<kebab>' per
+# cs-T5.C1.S17.SS6; prefer a role/title referent (fw-T2.C1.S10.SS5). Phase 2 populates.
+schema:
+  id: fw-parties-v1
+  version: 1.0.0
+governance:
+  owner_rule: T2.C1.S10.SS1
+  module: dev-acs-egun-trig-pcbdesign
+last_updated: 2026-10-07
+parties:
+# (empty until Phase 2 -- add entries as `- id: pty-<kebab>` ...)

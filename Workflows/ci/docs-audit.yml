@@ -1,0 +1,33 @@
+# CI rule manifest -- THIN delegator emitted by the CS scaffolder (cs-T5.C1.S17.SS2).
+# Delegates to the FW-pinned canonical validator in the _GOV-DesignFramework submodule
+# (FW owns the body; T8.C1.S9). Do NOT author a validator body in the consumer repo.
+
+schema:
+  id: fw-ci-manifest-v1
+  version: 1.0.0
+governance:
+  owner_rule: T8.C1.S9
+  module: fw
+last_updated: 2026-05-28
+
+ci_rule_id: docs-audit
+title: Documentation Gap Audit
+bylaws_section: T8.C1.S9
+class: mandatory
+severity: error
+tier: per-commit
+
+script: Governance/_GOV-DesignFramework/Definition/References/scripts/ci/docs-audit.ps1
+
+description: |
+  Two-tier documentation gap audit per T8.C1.S9.SS3 (per-commit shallow:
+  docs/ + four canonical files exist; periodic deep: sections + stub heuristic).
+  Delegated to the FW-pinned validator. While the repo is Phase-1-incomplete
+  (BOOTSTRAP.md present, docs/ absent) the FW validate.ps1 early-exits cleanly,
+  so this fires once Phase 2 has produced docs/.
+
+config:
+  docs_folder: docs
+  audit_log_path: _sandbox/.script-outputs/docs-audit.log
+  human_summary_path: docs/audits
+  default_invocation: shallow

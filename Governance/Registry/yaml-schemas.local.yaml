@@ -1,0 +1,26 @@
+# Repo-local YAML schema registry (T3.C1.S6.SS8).
+#
+# Drop schemas THIS repo owns here. The FW validator (yaml-schema-validation) resolves
+# schema.id against the UNION of FW's central Definition/References/yaml-schemas.yaml and
+# this file. An id in NEITHER is still an ERROR; FW-central ids win on collision. Do NOT
+# copy FW-owned or CS-owned schemas here -- only schemas THIS repo owns.
+
+schema:
+  id: fw-yaml-schemas-registry-v1
+  version: 1.0.0
+governance:
+  owner_rule: T3.C1.S6.SS8
+  module: dev-acs-egun-trig-pcbdesign
+last_updated: 2026-10-07
+
+# Empty by default -- resolution falls back to the central registry alone. Add entries as
+# the repo authors local companion YAMLs.
+schemas: []
+
+# Example entry (uncomment + adapt; validator path is relative to THIS repo root):
+#  - id: <prefix>-<thing>-v1
+#    version: 1.0.0
+#    lifecycle: active
+#    validator: Governance/Registry/validators/<prefix>-<thing>-v1.ps1   # optional; omit for metadata-only
+#    owner_module: <prefix>
+#    description: <what this local companion YAML describes>

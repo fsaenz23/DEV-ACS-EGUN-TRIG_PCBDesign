@@ -1,0 +1,57 @@
+# CI rule manifest -- THIN delegator emitted by the CS scaffolder (cs-T5.C1.S17.SS2).
+# Delegates to the FW-pinned canonical validator in the _GOV-DesignFramework submodule
+# (FW owns the body; T3.C1.S6). Do NOT author a validator body in the consumer repo.
+# Enabled by FW BUG-2026-005 (fw-v0.42.1): the validator is now submodule-aware -- it
+# resolves FW's central registry from the pinned submodule when the consumer-relative
+# path is absent, unions the repo-local Governance/Registry/yaml-schemas.local.yaml, and
+# validates the consumer's own YAMLs for real (no more hollow pass).
+#
+# metadata_mode is WARN here (not FW-repo's 'error'): a fresh consumer carries
+# schema-less stubs (Workflows/ownership/parties.yaml + stakeholders.yaml are emitted
+# comment + bare key, no top-level schema: block), so a missing metadata block must be
+# WARN to keep the scaffold born-clean. Enforcement is preserved: an unresolvable
+# schema.id and a validator failure are still ERROR, so every YAML that DOES declare a
+# schema (access.yaml, compatibility.yaml, the local registry, the CI manifests) is
+# validated for real. Phase 2 may tighten to 'error' once all companion YAMLs carry
+# schema blocks. (Flagged to FW for the 'born-active CI baseline' clause.)
+
+schema:
+  id: fw-ci-manifest-v1
+  version: 1.0.0
+governance:
+  owner_rule: T3.C1.S6.SS4
+  module: fw
+last_updated: 2026-05-21
+
+ci_rule_id: yaml-schema-validation
+title: YAML Companion Schema Validation
+bylaws_section: T3.C1.S6
+class: mandatory
+severity: error
+tier: per-commit
+
+script: Governance/_GOV-DesignFramework/Definition/References/scripts/ci/yaml-schema-validation.ps1
+
+description: |
+  Walks every governance-companion YAML in the repo (minus exempt paths) and, for each
+  file with a top-level schema.id, resolves it against the UNION of FW's central registry
+  (resolved from the pinned submodule, fw-v0.42.1) and the repo-local
+  Governance/Registry/yaml-schemas.local.yaml (fw-T3.C1.S6.SS8), then dispatches the
+  matching validator. Unresolvable schema.id => ERROR; validator failure => ERROR;
+  missing metadata block => per metadata_mode (WARN here). Delegated to the FW-pinned
+  validator; pinned Governance/_GOV-* submodules are exempt from the consumer scan.
+
+config:
+  registry_path: Definition/References/yaml-schemas.yaml   # FW-central; resolved from the submodule when absent here (fw-v0.42.1)
+  local_registry_path: Governance/Registry/yaml-schemas.local.yaml
+  scan_globs:
+    - "**/*.yaml"
+    - "**/*.yml"
+  exempt_paths:
+    - .git
+    - _sandbox
+    - 99-archive
+    - Definition/Narratives/Roadmap
+    - sharedhandoffs
+    - Definition/References/templates
+  metadata_mode: warn

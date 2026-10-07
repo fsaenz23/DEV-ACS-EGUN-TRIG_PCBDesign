@@ -1,0 +1,14 @@
+# Per-Path Agent Access Manifest (fw-module-access-v1; fw-T6.C1.S4). Default-emitted by the
+# CS-hosted scaffolder (cs-T5.C1.S17). Per fw-T6.C1.S4.SS2 do NOT list consumed-submodule paths.
+# Phase 2: add write/swap-only paths for the content this project maintains.
+schema:
+  id: fw-module-access-v1
+  version: 1.0.0
+governance:
+  owner_rule: fw-T6.C1.S4
+  module: <PHASE-2-FILL>
+last_updated: 2026-10-07
+default: read-only
+paths:
+  - path: Definition/Narratives/
+    access: write

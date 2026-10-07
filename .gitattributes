@@ -1,0 +1,7 @@
+# Canonical FW defaults (new-project.ps1 Phase 1; T3.C2.S5 + T3.C1.S3.SS3)
+* text=auto eol=lf
+*.ps1 text eol=lf working-tree-encoding=ASCII
+*.md text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.bat text eol=crlf

@@ -1,0 +1,32 @@
+# CI rule manifest -- THIN delegator emitted by the CS scaffolder (cs-T5.C1.S17.SS2).
+# Delegates to the FW-pinned canonical validator in the _GOV-DesignFramework submodule
+# (FW owns the body; T6.C1.S4). Do NOT author a validator body in the consumer repo.
+
+schema:
+  id: fw-ci-manifest-v1
+  version: 1.0.0
+governance:
+  owner_rule: T6.C1.S4
+  module: fw
+last_updated: 2026-06-11
+
+ci_rule_id: access-manifest-check
+title: Per-Path Agent Access Manifest Integrity
+bylaws_section: T6.C1.S4
+class: mandatory
+severity: warn
+tier: per-commit
+
+script: Governance/_GOV-DesignFramework/Definition/References/scripts/ci/access-manifest-check.ps1
+
+description: |
+  For the repo-root access.yaml (if present) + every modules/**/access.yaml,
+  verifies access-level vocabulary + no submodule-path grants + path existence
+  per T6.C1.S4. No access.yaml anywhere => no-op. WARN-tier at v1. Delegated to
+  the FW-pinned validator.
+
+config:
+  manifest_globs:
+    - access.yaml
+    - modules/**/access.yaml
+  gitmodules: .gitmodules

@@ -1,0 +1,32 @@
+# CI rule manifest -- THIN delegator emitted by the CS scaffolder (cs-T5.C1.S17.SS2).
+# Delegates to the FW-pinned canonical validator in the _GOV-DesignFramework submodule
+# (FW owns the body; T2.C1.S10). Do NOT author a validator body in the consumer repo.
+
+schema:
+  id: fw-ci-manifest-v1
+  version: 1.0.0
+governance:
+  owner_rule: T2.C1.S10
+  module: fw
+last_updated: 2026-06-10
+
+ci_rule_id: party-resolvability
+title: Party / Stakeholder Reference Resolvability
+bylaws_section: T2.C1.S10
+class: mandatory
+severity: error
+tier: per-commit
+
+script: Governance/_GOV-DesignFramework/Definition/References/scripts/ci/party-resolvability.ps1
+
+description: |
+  Verifies party_id references in Workflows/ownership/parties.yaml +
+  stakeholders.yaml resolve, per T2.C1.S10.SS3. No parties.yaml + no
+  stakeholders.yaml => no-op. Delegated to the FW-pinned validator.
+
+config:
+  registry: Workflows/ownership/parties.yaml
+  stakeholder_globs:
+    - Workflows/ownership/stakeholders.yaml
+    - modules/**/Workflows/ownership/stakeholders.yaml
+  identity_map: Workflows/identity-map.yaml

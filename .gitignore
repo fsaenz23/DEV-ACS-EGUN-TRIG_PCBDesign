@@ -1,0 +1,10 @@
+# Canonical FW defaults (new-project.ps1 Phase 1; T3.C1.S7.SS2)
+# _sandbox/ is FULLY gitignored -- transient scratch + the permanent !Dump inbox (fw-T7.C1.S5.SS5); it is
+# never committed (it holds local garbage). new-project.ps1 creates _sandbox/!Dump/ at Phase 1, and the
+# Workflows thin-shells recreate it on any clone where it is missing.
+_sandbox/
+*.log
+*.swp
+.DS_Store
+Thumbs.db
+.obsidian/

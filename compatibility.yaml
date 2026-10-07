@@ -1,0 +1,18 @@
+﻿# Phase-1 scaffold (new-project.ps1 per T3.C1.S7).
+# Phase 2 will populate scope block + governance pins + project-type type_ref.
+schema:
+  id: fw-compatibility-yaml-v2
+  version: 2.0.0-draft
+governance:
+  owner_rule: <PHASE-2-FILL>
+  module: <PHASE-2-FILL>
+last_updated: 2026-10-07
+
+workflow_mode: direct
+scope:
+  subject: <PHASE-2-FILL>
+  axis: <PHASE-2-FILL>
+  excludes: []
+governance_pins:
+  fw: <PHASE-1-FILL-IN-STEP-7>
+  cs: <PHASE-1-FILL-IN-STEP-7>
