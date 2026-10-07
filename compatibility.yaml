@@ -14,5 +14,6 @@ scope:
   axis: <PHASE-2-FILL>
   excludes: []
 governance_pins:
-  fw: <PHASE-1-FILL-IN-STEP-7>
-  cs: <PHASE-1-FILL-IN-STEP-7>
+  fw: fw-v0.93.0
+  cs: cs-v0.64.0
+

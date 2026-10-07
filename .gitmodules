@@ -1,0 +1,6 @@
+[submodule "Governance/_GOV-DesignFramework"]
+	path = Governance/_GOV-DesignFramework
+	url = https://github.com/Reveam-Revisions/_GOV-DesignFramework.git
+[submodule "Governance/_GOV-CodedStructures"]
+	path = Governance/_GOV-CodedStructures
+	url = https://github.com/Reveam-Revisions/_GOV-CodedStructures.git
