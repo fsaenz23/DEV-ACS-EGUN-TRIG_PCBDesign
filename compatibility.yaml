@@ -1,19 +1,25 @@
-﻿# Phase-1 scaffold (new-project.ps1 per T3.C1.S7).
-# Phase 2 will populate scope block + governance pins + project-type type_ref.
+# Project compatibility + scope manifest (fw-compatibility-yaml-v2).
+# Scope block per fw-T11.C1.S1.SS2 (machine-readable companion to the human-prose Scope in
+# README.md, fw-T11.C1.S1.SS1 -- the two forms MUST agree).
 schema:
   id: fw-compatibility-yaml-v2
   version: 2.0.0-draft
 governance:
-  owner_rule: <PHASE-2-FILL>
-  module: <PHASE-2-FILL>
+  owner_rule: fw-T11.C1.S1.SS2
+  module: dev-acs-egun-trig-pcbdesign
 last_updated: 2026-10-07
 
 workflow_mode: direct
 scope:
-  subject: <PHASE-2-FILL>
-  axis: <PHASE-2-FILL>
-  excludes: []
+  subject: Trigger Board Assembly PCB design (Base board + Logic board -- schematics, layouts, BOM, released fabrication outputs, system documentation) for trigger generation, gating and status in the Accelerator Control System (asset_id DEV-ACS-EGUN-TRIG_PCBDesign)
+  axis: the asset itself -- the PCB design content of the two-board stack
+  excludes:
+    - Firmware and control code (the assembly is discrete logic; none exists)
+    - Facility-side instancing and deployment of the assembly (E-coded facility repos via type_ref)
+    - Governance bylaws (FW + CS -- consumed as pinned submodules, never authored here)
+    - The vendor fiber evaluation boards (AFBR-0548Z) that plug into J7/J10 (sourced parts, not designed here)
+    - The planned all-SMD / single-board redesign (future work; will branch from this released baseline)
+    - Sibling ACS board designs (for example the LLRF DDS board)
 governance_pins:
   fw: fw-v0.93.0
   cs: cs-v0.64.0
-

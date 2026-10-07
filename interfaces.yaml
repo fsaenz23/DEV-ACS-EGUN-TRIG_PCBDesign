@@ -1,0 +1,99 @@
+# Per-module interface manifest (fw-interfaces-v1; fw-T9.C1.S5.SS1).
+# Declares the external interfaces of the Trigger Board Assembly (Base + Logic boards; the
+# board-to-board connectors J8/J1 and J2/J2 are internal to the assembly and are not listed).
+# Narrated for humans in docs/INTERFACES.md (fw-T8.C1.S9.SS2). Pin-by-pin detail lives in
+# Definition/Narratives/trigger-board-system-documentation.* (sections 3-5).
+schema:
+  id: fw-interfaces-v1
+  version: 1.0.0
+governance:
+  owner_rule: fw-T9.C1.S5.SS1
+  module: dev-acs-egun-trig-pcbdesign
+last_updated: 2026-10-07
+
+interfaces:
+  - id: trigger-input-bnc
+    direction: required
+    protocol_family: electrical
+    summary: External trigger input on BNC J6 (optional 50 ohm termination via JP3); selected with JP2.
+    change_sensitive_fields:
+      - connector_type
+      - logic_level
+      - termination
+    lifecycle: active
+
+  - id: trigger-input-fiber
+    direction: required
+    protocol_family: optical
+    summary: External trigger input via fiber receiver evaluation board on header J10; selected with JP2.
+    change_sensitive_fields:
+      - header_pinout
+      - fiber_receiver_module
+    lifecycle: active
+
+  - id: trigger-output-bnc
+    direction: provided
+    protocol_family: electrical
+    summary: Gated trigger pulse driven by IC1 onto BNC J5 (optional 50 ohm load via JP4); selected with JP1.
+    change_sensitive_fields:
+      - connector_type
+      - drive_level
+      - pulse_width
+    lifecycle: active
+
+  - id: trigger-output-fiber
+    direction: provided
+    protocol_family: optical
+    summary: Gated trigger pulse out via fiber transmitter evaluation board on header J7; selected with JP1.
+    change_sensitive_fields:
+      - header_pinout
+      - fiber_transmitter_module
+    lifecycle: active
+
+  - id: dc-power-in
+    direction: required
+    protocol_family: electrical
+    summary: 24 V DC supply and ground on field terminal block J1 pins 1-2; each board derives its own 5 V.
+    change_sensitive_fields:
+      - rail_voltage
+      - current_budget
+      - terminal_pinout
+    lifecycle: active
+
+  - id: isolated-24v-in
+    direction: required
+    protocol_family: electrical
+    summary: Separate external 24 V and return (EXT_24V / EXT_GND) on J1 powering the isolated status outputs.
+    change_sensitive_fields:
+      - rail_voltage
+      - terminal_pinout
+    lifecycle: active
+
+  - id: inhibit-inputs
+    direction: required
+    protocol_family: electrical
+    summary: Three opto-isolated external inhibit inputs on J1 (Inhibit1-3); any asserted inhibit stops output pulses.
+    change_sensitive_fields:
+      - input_polarity
+      - isolation
+      - terminal_pinout
+    lifecycle: active
+
+  - id: remote-control-inputs
+    direction: required
+    protocol_family: electrical
+    summary: External one-shot select (OS_Select_EXT) and arm (Arm_OS_EXT) inputs on J1 for remote operation.
+    change_sensitive_fields:
+      - input_polarity
+      - terminal_pinout
+    lifecycle: active
+
+  - id: status-outputs
+    direction: provided
+    protocol_family: electrical
+    summary: Opto-isolated status feedback on terminal block J3 (remote, local, armed, one-shot, normal, power, trigger, inhibit).
+    change_sensitive_fields:
+      - signal_set
+      - isolation
+      - terminal_pinout
+    lifecycle: active

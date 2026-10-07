@@ -1,3 +1,7 @@
+---
+current_version: dev-acs-egun-trig-pcbdesign-v0.1.0
+---
+
 # Standing State
 
 > Per fw-T7.C1.S18.SS1 -- the MANDATORY agent-resume record (Session Continuity & Roadmap Maintenance).
@@ -20,14 +24,20 @@ itself is not overridable.
 > fw-T11.C1.S2 its content is single-sourced from the FW artifact, never hardcoded in a consumer.
 
 ## Current standing state
-- Phase: Phase 1 scaffold complete -- Phase 2 (BOOTSTRAP.md) not yet started
-- Last shipped: none yet
+- Phase: Phase 2 content populated 2026-10-07 (uncommitted); name gate CANONICAL, validate.ps1 PASS
+- Classification: DEV-ACS-EGUN-TRIG_PCBDesign (ACS -> EGUN -> TRIG; function TimingSignal; type-class PCB; discipline D040)
+- Owner: pty-francisco-saenz (EntraID fjsaenz)
+- Layout: flat (no eigen-module; no composition.yaml); two boards under Definition/Drawings/{Base_Board,Logic_Board}
+- Design content: released Base ("pin version") + Logic (rev 0.2) boards; source package C:\Repos\Trigger_Board_Package left untouched
 - Pins: see compatibility.yaml (governance_pins)
-- In flight: project naming + classification (Phase 2)
-- Where staged: _sandbox/ (if used)
+- Last shipped: none yet
 
 ## Next steps
-- [ ] Complete Phase 2 per BOOTSTRAP.md: name + classify + populate + validate + publish.
+- [x] Name gate: CANONICAL (advisory only: PCBDesign not in catalogued project-type set).
+- [x] Workflows/validate.ps1: PASS, 0 errors.
+- [ ] Commit + push via Workflows/push.ps1 (choose remote); tag via Workflows/tag.ps1.
 
 ## Open decisions / parked
-- (none yet)
+- Two ORDER_SPEC.md files fail Definition/Fabrication/CHECKSUMS.sha256 (edited after checksums); regenerate if wanted.
+- Functional descriptions in the system documentation (section 1) still to be confirmed against design intent.
+- Optional full Gerber check (silkscreen, paste, pad shapes) not done.

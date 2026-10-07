@@ -8,4 +8,14 @@ governance:
   module: dev-acs-egun-trig-pcbdesign
 last_updated: 2026-10-07
 parties:
-# (empty until Phase 2 -- add entries as `- id: pty-<kebab>` ...)
+  # Accountable owner of the Trigger Board design (individual party per operator election,
+  # fw-T2.C1.S10.SS1). No Workflows/identity-map.yaml under workflow_mode: direct, so
+  # entra_id is informational only and is not CI-resolved.
+  - party_id: pty-francisco-saenz
+    category: internal
+    type: person
+    display_name: "Francisco Saenz"
+    title: "Trigger Board Design Owner"
+    organization: "Reveam"
+    email: "fjsaenz87@gmail.com"
+    entra_id: fjsaenz

@@ -7,4 +7,7 @@ governance:
   module: dev-acs-egun-trig-pcbdesign
 last_updated: 2026-10-07
 systems:
-# (empty until Phase 2 -- add entries as `- name: <system>` with owner: + stakeholders: [])
+  - system_id: ACS-EGUN-TRIG
+    role: "Trigger Board Assembly PCB design (Base + Logic boards, Accelerator Control System)"
+    owner: pty-francisco-saenz
+    stakeholders: []

@@ -6,9 +6,22 @@ schema:
   version: 1.0.0
 governance:
   owner_rule: fw-T6.C1.S4
-  module: <PHASE-2-FILL>
+  module: dev-acs-egun-trig-pcbdesign
 last_updated: 2026-10-07
 default: read-only
 paths:
   - path: Definition/Narratives/
     access: write
+  - path: docs/
+    access: write
+  # Vendor-tool / binary design content: replace-whole-file (swap-only), fw-T6.C1.S4.
+  - path: Definition/Drawings/
+    access: swap-only
+  - path: Definition/Fabrication/
+    access: swap-only
+  - path: Definition/Equipment/
+    access: swap-only
+  - path: Definition/Architecture/
+    access: swap-only
+  - path: Definition/Calculations/
+    access: swap-only
